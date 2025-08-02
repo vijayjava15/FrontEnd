@@ -1,0 +1,25 @@
+p {
+    color: red;
+}
+
+/* body{
+    background-image: url("medium-shot-man-wearing-vr-glasses_23-2149126949.avif");
+    background-repeat: no-repeat;
+    background-position: center right;
+   
+} */
+
+h2{
+    /* border-style: solid;
+    border-width: medium;
+    border-color: red;
+    border-radius: 5px 0px 15px 10px; */
+
+    margin: inherit;
+    width: 200px;
+    border: 2px solid;
+}
+
+/* body{
+    margin: 50px;
+} */

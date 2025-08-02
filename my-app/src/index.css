@@ -1,0 +1,88 @@
+.container{
+  
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+ 
+
+}
+
+
+
+
+
+
+.cardDiv{
+    border-style: solid ;
+    width: 500px;
+    border-radius: 15px;
+    height: 300px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+
+    
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    margin-left: 10px;
+    border-radius: 50%;
+
+}
+
+
+.photoName{
+    width: 400px;
+    height: 150px;
+   display: flex;
+}
+
+
+.name{
+    margin-left: 30px;
+    margin-top: 130px;
+}
+
+
+.formDiv{
+  width: 350px;
+  height: 200px auto;
+}
+
+input{
+    width: 300px;
+    border-radius: 8px;
+    padding: 10px;
+    border-color: aliceblue;
+    border-style: solid;
+}
+
+button{
+    width: 320px;
+    height: 40px;
+    border-radius: 10px;
+    
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p{
+    font-size: 20px;
+    font-weight: bolder;
+   text-align: center;
+   border-style: initial;
+}
+
+
+.details{
+    text-align: center;
+}
+
+.cardDiv:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
