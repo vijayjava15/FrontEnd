@@ -1,0 +1,226 @@
+.card{
+  background-color: wheat;
+  max-width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: sans-serif;
+  margin: 10px;
+  padding: 2px;
+  text-align: center;
+  display: inline-block;
+  
+}
+
+
+
+.card img {
+  width: 200px;
+ 
+}
+
+.card :hover{
+  transform: scale(1.02);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1)
+}
+
+.taskCard{
+  background-color:  transparent;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: sans-serif;
+  margin: 10px;
+  padding: 16px;
+  text-align: center;
+ 
+  margin-top: 50px;
+
+   background-color: white;
+  
+}
+
+.taskHeader{
+  border-style: solid;
+    border-radius: 5px;
+    background-color: #f9f9f7;
+    color: black;
+
+
+}
+
+
+.taskStatus{
+
+    padding: 0px 10px 20px 0px;
+      border-radius: 5px;
+}
+
+.deleteTask{
+
+ 
+  border-radius: 5px;
+}
+
+ button{
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+
+button:hover{
+  background-color: white;
+   transform: scale(1.05);
+}
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 300px;
+  width: 300px; /* fixed from "100" */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content .developerDropDown {
+  margin-bottom: 12px;
+  width: 200px;
+  height: 30px;
+}
+
+.mainContainer{
+  
+  font-family: sans-serif;
+  margin: 10px;
+  padding: 2px;
+  text-align: center;
+
+  display: inline-block;
+
+}
+
+.close-icon{
+  border-radius: 15px;
+  margin-left: 250px;
+  background-color: red;
+
+}
+
+
+.sideBar{
+  height: 100%;
+  width: 200px;
+  background-color: #F2EDEE;
+  display: flex;
+
+ 
+}
+
+
+.App{
+  height: 100vh;
+  width: 100vw;
+  
+}
+
+
+.sideBarList{
+
+
+
+}
+
+.sdbar{
+
+ 
+
+
+}
+
+
+.container{
+   display: flex;
+   flex-direction: row;
+}
+
+
+.App {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+
+
+.videoDownload{
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+  width: 100%;
+  margin-top: 200px;
+
+}
+
+.videoDownload #downloadInput ,  #buttonDownload {
+  border: 1px solid black;
+  border-radius: 10px;
+  
+  
+}
+.videoDownload #buttonDownload {
+ margin-top: 10px;
+ margin-left: 190px;
+
+ width: 100px;
+}
+
+.videoDownload #downloadInput{
+  width: 250px;
+  padding: 20px;
+}
+
+
+.quizApp{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center ;
+
+  margin-top: 100px;
+  flex-direction: column;
+}
+
+.questionBox{
+ width: 400px;
+ height: 200px;
+ border: 1px solid blanchedalmond;
+ border-radius: 12px;
+}
+
+.answerBox{
+  width: 400px;
+ height: 200px;
+ border-radius: 12px; 
+
+ display: flex;
+ flex-direction: row;
+ gap: 30px;
+ margin-left: 20%;
+}
+

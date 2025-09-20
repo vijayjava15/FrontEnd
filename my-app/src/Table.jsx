@@ -98,6 +98,11 @@ const Table = () => {
         <td>
           <input type="text"  required={usr.errors.usrName} value={usr.usrName} onChange={(e) => addValue(index, "usrName", e.target.value )}/>
           {usr.errors.usrName && <span style={{ color: 'red' }}> Required</span>}
+           {/* <i
+          className="sidebar icon search"
+          style={{ marginLeft: 8, cursor: 'pointer' }}
+        
+        /> */}
           </td>
         <td><input type="text"  value={usr.age} onChange={(e) => addValue(index, "age", e.target.value )}/>
         {usr.errors.age && <span style={{ color: 'red' }}> Required</span>}

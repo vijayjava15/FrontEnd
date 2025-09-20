@@ -14,7 +14,7 @@ function App() {
    <div style={{ display: 'flex' }}> 
   
   
-    <ProfileCard/>
+    <Table/>
     
    
    </div>
