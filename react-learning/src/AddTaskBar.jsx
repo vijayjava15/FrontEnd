@@ -69,6 +69,7 @@ const AddTaskBar = (props) => {
                 <option value={"Manju"}>Manju</option>
                 <option value={"Maninthar"}> Maninthar</option>
                 <option value={"Pavithra"}>Pavithra</option>
+                <option value={"suhail"}>suhail</option>
               </select>
               <input
                 required

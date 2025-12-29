@@ -10,6 +10,9 @@ import VideoDownLoad from './VideoDownLoad';
 import QuizApp from './QuizApp';
 import Stopwatch from './Stopwatch';
 import Counter from './Counter';
+import Login from './login/Login';
+import Chat from './chat/Chat';
+import MenuList from './MenuList';
 
 function App() {
   const [courses, setCourses] = useState([
@@ -57,10 +60,14 @@ function App() {
                <Route path="/quiz" element={<QuizApp />} />
                 <Route path="/stopwatch" element={<Stopwatch />} />
                  <Route path="/count" element={<Counter />} />
+                 <Route path='/chatApp' element={<Login />} />
+                  <Route path='/chat' element={<Chat />} />
+                   <Route path='/menu' element={<MenuList />}/>
             </Routes>
           </div>
   
       </Router>
+     
     </div>
   );
 }

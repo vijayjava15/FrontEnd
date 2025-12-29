@@ -30,6 +30,14 @@ const SideBarData  = [
     { name:'Stopwatch ',
         icon: <LaptopIcon />, 
         url : '/stopwatch'
+    },
+     { name:'ChatApp ',
+        icon: <LaptopIcon />, 
+        url : '/chatApp'
+    },
+    { name:'menu ',
+        icon: <CalendarTodayIcon />, 
+        url : '/menu'
     }
 ]
 
