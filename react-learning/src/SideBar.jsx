@@ -46,7 +46,7 @@ const SideBar = () => {
       <ul className="sideBarList">
         {sideBarData.map((value, key) => {
           return (
-            <li className="row" onClick={() => navigate(value.url)}>
+            <li className="row" onClick={() => navigate("/" + value.url)}>
               {"  "}
               <div className="menu">
                 <i class={value.icon}></i>

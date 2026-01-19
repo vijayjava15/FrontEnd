@@ -33,17 +33,16 @@ const MainRoute = () => {
     return <Navigate to="/login" />;
   }
   return (
-    <div className="">
-    <div style={{display:'flex'}}>
+    <div className='main-screen'>
         { /* {location.pathname !=='/login'  && (  */}
-          <div style={{ width: "200px" }}>
+          <div className='side-bar-screen'>
             <SideBar />
           </div>
        { /*  )} */}
      
 
           {/* Main Content */}
-          <div style={{ flex: 1, padding: "20px" }}>
+          <div className='main-content' >
             <Routes>
               <Route path="/taskPlanner" element={<TaskBar />} />
               <Route
@@ -74,7 +73,6 @@ const MainRoute = () => {
                    
             </Routes>
           </div>
-    </div>
     </div>
   )
 }
