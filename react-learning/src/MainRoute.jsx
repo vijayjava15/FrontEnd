@@ -12,6 +12,10 @@ import TaskBar from './TaskBar';
 import Login from './login/Login';
 import Chat from './chat/Chat';
 import MenuList from './MenuList';
+import Billing from './billing/Billing';
+import AddProduct from './billing/AddProduct';
+import Bootstrap from './bootstrap/Bootstrap';
+import WeekPlan from './weeklyPlan/WeekPlan';
 
 const MainRoute = () => {
 
@@ -70,6 +74,10 @@ const MainRoute = () => {
                   <Route path='/chat' element={<Chat />} />
                    <Route path='/menu' element={<MenuList />}/>
                     <Route path='/menu-list' element={<MenuListView />}/>
+                    <Route path='/billing' element={<Billing />}/>
+                     <Route path='/addProduct' element={<AddProduct />}/>
+                     <Route path='/bootstrap' element={<Bootstrap/>} />
+                     <Route path='/weekplan' element={<WeekPlan/>} />
                    
             </Routes>
           </div>

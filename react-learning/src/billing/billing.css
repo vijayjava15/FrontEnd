@@ -1,0 +1,14 @@
+.qty-input {
+  width: 60px !important;
+}
+
+.product-card-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.sticky-top {
+  z-index: 1020;
+}
