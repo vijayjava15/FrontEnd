@@ -16,6 +16,8 @@ import Billing from './billing/Billing';
 import AddProduct from './billing/AddProduct';
 import Bootstrap from './bootstrap/Bootstrap';
 import WeekPlan from './weeklyPlan/WeekPlan';
+import Error from './error/Error';
+import AddError from './error/AddError';
 
 const MainRoute = () => {
 
@@ -78,6 +80,9 @@ const MainRoute = () => {
                      <Route path='/addProduct' element={<AddProduct />}/>
                      <Route path='/bootstrap' element={<Bootstrap/>} />
                      <Route path='/weekplan' element={<WeekPlan/>} />
+                     <Route path='/errorList' element={<Error/>} />
+                      <Route path='/create-error' element={<AddError/>} />
+
                    
             </Routes>
           </div>

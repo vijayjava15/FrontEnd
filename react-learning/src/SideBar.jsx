@@ -11,6 +11,7 @@ const SideBar = () => {
   const { logoutUser } = useContext(UserContext);
 
   const [sideBarData, setSideBarData] = useState([]);
+  
   // const [sideBar, setSideBar] = useState({
   //   menuName : '',
   //   icon  : ''

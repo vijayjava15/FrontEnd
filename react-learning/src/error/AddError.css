@@ -1,0 +1,95 @@
+.add-error-container {
+  width: 100%;
+  padding: 24px;
+  height: 100vh;
+}
+
+.page-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 20px;
+}
+
+/* Card */
+.error-card {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Form groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #0d6efd;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #6c757d;
+  padding: 10px 22px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #0b5ed7;
+}
+
+.btn-secondary:hover {
+  background: #f1f1f1;
+}
+
+textarea{
+    height: 200px;
+}

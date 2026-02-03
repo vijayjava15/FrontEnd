@@ -1,14 +1,28 @@
-.qty-input {
-  width: 60px !important;
-}
-
-.product-card-img {
+img {
   width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
+  border-radius: 40px;
 }
 
-.sticky-top {
-  z-index: 1020;
+.mainContainer {
+  height: 100vh;
+  position: relative;
+  width: 100vh;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+
 }
+.productContainer{
+  height: 100vh;
+  width: 80%;
+  background-color: aqua;
+}
+
+
+.billingContainer{
+  height: 100vh;
+  width: 20%;
+  background-color: black;
+}
+
+  background: rgba(220, 53, 69, 0.5);

@@ -9,14 +9,16 @@ const Billing = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
   const changePage = () => {
     navigate("/addProduct");
   };
   const { username } = useContext(UserContext);
-  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
+    getCartItems();
+    getQty();
     axios.get(URL + "/getProduct").then((res) => {
       console.log(res);
 
@@ -26,82 +28,35 @@ const Billing = () => {
         prod.productName = element.productName;
         prod.sellingPrice = element.sellingPrice;
         prod.imageUrl = element.imageUrl;
-        prod.total = element.sellingPrice;
-        prod.qty = 0;
+
         prodList.push(prod);
       });
       setProducts(prodList);
     });
-  }, [refresh]);
+  }, []);
 
   const changeTotalAndQuanity = (index, sellingPrice) => {
     const prodList = [...products];
     const prodObj = prodList[index];
-    prodObj.qty = prodObj.qty + 1;
-    if (prodObj.qty >= 0) {
-      prodObj.total = sellingPrice * prodObj.qty;
-      prodList[index] = prodObj;
-      console.log(prodList);
-      setProducts(prodList);
-      changeTotal();
-      addToCart();
-      setRefresh(true);
-      getCartItems();
-    }
+    addToCart(prodObj);
   };
 
   const minusQty = (index, sellingPrice) => {
     const prodList = [...products];
     const prodObj = prodList[index];
-    prodObj.qty = prodObj.qty - 1;
-    if (prodObj.qty >= 0) {
-      prodObj.total = sellingPrice * prodObj.qty;
-      prodList[index] = prodObj;
-      console.log(prodList);
-      setProducts(prodList);
-      changeTotal();
-      addToCart();
-      setRefresh(true);
-      getCartItems();
-    }
+
+    addToCart(prodObj);
   };
 
-  const changeQTy = (value, index) => {
-    console.log(value);
-    if (value >= 0) {
-      const updated = [...products];
-
-      updated[index] = {
-        ...updated[index],
-        qty: value,
-        total: value * updated[index].sellingPrice,
-      };
-
-      setProducts(updated);
-      changeTotal();
-      //addToCart();
-    }
-  };
-
-  const changeTotal = () => {
-    let total = 0;
-
-    products.forEach((p) => {
-      total += p.total;
-    });
-
-    setTotalAmount(total);
-  };
-
-  const addToCart = () => {
+  const addToCart = (prodObj) => {
     const cartItems = [];
-    products.map((product) => {
-      const cartItem = {};
-      cartItem.productName = product.productName;
-      cartItem.price = product.sellingPrice;
-      cartItem.quantity = product.qty;
-      cartItems.push(cartItem);
-    });
+
+    const cartItem = {};
+    cartItem.productName = prodObj.productName;
+    cartItem.price = prodObj.sellingPrice;
+    cartItem.quantity = prodObj.qty;
+    cartItems.push(cartItem);
+
     const cart = {};
     cart.totalAmount = totalAmount;
     cart.userName = username;
@@ -110,22 +65,74 @@ const Billing = () => {
     axios.post(URL + "/cart/addProduct", cart).then((res) => {
       console.log(res);
       console.log("sucess");
+      console.log(res);
+      getCartItems();
+      // setCartItems(res.data.data.cartItems);
+      // setTotalAmount(res.data.data.totalAmount);
     });
   };
 
   const getCartItems = () => {
     const cart = {};
     cart.userName = username;
-    axios.post(URL + "/cart/getProduct", cart).then((res) => {
-      console.log(res);
-    }).catch(err => console.log(err));
+    axios
+      .post(URL + "/cart/getProduct", cart)
+      .then((res) => {
+        console.log(res);
+        setCartItems(res.data.data.cartItems);
+        setTotalAmount(res.data.data.totalAmount);
+      })
+      .catch((err) => console.log(err));
   };
+
+  const clearCart = () => {
+    const cart = {};
+    cart.userName = username;
+    axios
+      .post(URL + "/cart/clear", cart)
+      .then((res) => {
+        console.log(res);
+        getCartItems();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const getQty = (productName) => {
+    const item = cartItems.find((c) => c.productName === productName);
+    return item ? item.quantity : 0;
+  };
+
+  const generateBill = () => {
+  const cart = {
+    userName: username,
+  };
+
+  axios({
+    url: URL + "/order/create",
+    method: "POST",
+    data: cart,         
+    responseType: "blob",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then((res) => {
+  getCartItems();
+    const blob = new Blob([res.data], {
+      type: "application/pdf",
+    });
+
+    const pdfUrl = window.URL.createObjectURL(blob);
+    window.open(pdfUrl);
+  });
+
+
+};
 
   return (
     <div className="container-fluid p-4">
       <div className="row">
         {/* Product List Section */}
-        <div className="col-md-9">
+        <div className="col-md-8">
           <div className="row">
             {products.map((product, index) => (
               <div className="col-md-4 mb-4" key={index}>
@@ -149,14 +156,15 @@ const Billing = () => {
                       >
                         -
                       </button>
+
                       <input
                         className="form-control form-control-sm text-center"
                         style={{ width: "60px" }}
                         type="number"
-                        value={product.qty}
-                        onChange={(e) => changeQTy(e.target.value, index)}
-                        disabled
+                        value={getQty(product.productName)}
+                        readOnly
                       />
+
                       <button
                         className="btn btn-sm btn-outline-secondary px-3"
                         onClick={(e) =>
@@ -169,9 +177,6 @@ const Billing = () => {
                     <div className="text-muted small mb-2">
                       Price: {product.sellingPrice}
                     </div>
-                    <div className="fw-bold text-primary">
-                      Total: {product.total}
-                    </div>
                   </div>
                 </div>
               </div>
@@ -180,32 +185,76 @@ const Billing = () => {
         </div>
 
         {/* Billing Summary Section */}
-        <div className="col-md-3">
+        <div className="col-md-4">
           <div
-            className="card shadow-sm border-0 bg-light p-3 sticky-top"
-            style={{ top: "20px" }}
+            className="card shadow-sm border-0 bg-light p-4 sticky-top"
+            style={{ top: "20px", minWidth: "350px" }}
           >
-            <h5 className="mb-4">Billing Summary</h5>
-            <div className="d-flex justify-content-between mb-4">
-              <ul>
-                Items
-                {}
-              </ul>
+            <h4 className="mb-4 fw-bold">Billing Summary</h4>
+
+            <div className="mb-4">
+              <h6 className="fw-semibold mb-3">Items</h6>
+              {cartItems.length > 0 ? (
+                <div
+                  className="bg-white rounded p-3"
+                  style={{ maxHeight: "300px", overflowY: "auto" }}
+                >
+                  <table className="table table-sm mb-0">
+                    <thead>
+                      <tr>
+                        <th className="border-0">Item</th>
+                        <th className="border-0 text-end">Qty</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {cartItems.map((items, idx) => (
+                        <tr key={idx}>
+                          <td className="border-0">{items.productName}</td>
+                          <td className="border-0 text-end fw-bold">
+                            {items.quantity}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="text-muted text-center py-3 mb-0">
+                  No items in cart
+                </p>
+              )}
             </div>
-            <div className="d-flex justify-content-between mb-4">
-              <span>Grand Total:</span>
-              <span className="fw-bold text-success fs-4">{totalAmount}</span>
+
+            <div className="bg-white rounded p-3 mb-4">
+              <div className="d-flex justify-content-between align-items-center">
+                <span className="fs-5 fw-semibold">Grand Total:</span>
+                <span className="fw-bold text-success fs-4">{totalAmount}</span>
+              </div>
             </div>
-            <hr />
-            <button className="btn btn-success w-100 mb-2 py-2 fw-bold">
-              GENERATE BILL
-            </button>
-            <button
-              className="btn btn-outline-primary w-100 py-2"
-              onClick={changePage}
-            >
-              ADD PRODUCT
-            </button>
+
+            <hr className="my-4" />
+
+            <div className="d-grid gap-2">
+              <button
+                className="btn btn-success w-100 py-3 fw-bold fs-5"
+                onClick={generateBill}
+              >
+                GENERATE BILL
+              </button>
+              <button
+                className="btn btn-outline-primary w-100 py-3 fs-5"
+                onClick={changePage}
+              >
+                ADD PRODUCT
+              </button>
+              <button
+                className="btn btn-outline-danger w-100 py-3 fs-5"
+                onClick={clearCart}
+                style={{textAlign : "-moz-initial"}}
+              >
+                CLEAR CART
+              </button>
+            </div>
           </div>
         </div>
       </div>
