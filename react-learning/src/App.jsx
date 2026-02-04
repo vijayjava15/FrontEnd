@@ -19,7 +19,7 @@ import Counter from "./Counter";
 import Login from "./login/Login";
 import Chat from "./chat/Chat";
 import MenuList from "./MenuList";
-import MenuListView from "./menuListView";
+import MenuListView from "./MenuListView";
 import { UserContext } from "./UserProvider";
 import MainRoute from "./MainRoute";
 
