@@ -5,7 +5,7 @@ import VideoDownLoad from './VideoDownLoad';
 import QuizApp from './QuizApp';
 import Stopwatch from './Stopwatch';
 import Counter from './Counter';
-import MenuListView from './menuListView';
+import MenuListView from './MenuListView';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Course from './Course';
 import TaskBar from './TaskBar';
