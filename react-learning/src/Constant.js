@@ -1,1 +1,1 @@
-export const URL= 'http://localhost:8082'
+export const URL= 'http://192.168.29.247:8082'
