@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Course from "./Course";
-import TaskBar from "./TaskBar";
+import TaskBar from "./task/TaskBar";
 import SideBar from "./SideBar";
 import Deployment from "./Deployment";
 import { Download } from "@mui/icons-material";
