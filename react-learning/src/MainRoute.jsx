@@ -18,6 +18,7 @@ import Bootstrap from './bootstrap/Bootstrap';
 import WeekPlan from './weeklyPlan/WeekPlan';
 import Error from './error/Error';
 import AddError from './error/AddError';
+import GptPage from './gpt/GptPage';
 
 const MainRoute = () => {
 
@@ -82,6 +83,7 @@ const MainRoute = () => {
                      <Route path='/weekplan' element={<WeekPlan/>} />
                      <Route path='/errorList' element={<Error/>} />
                       <Route path='/create-error' element={<AddError/>} />
+                      <Route path='/gpt' element={<GptPage/>} />
 
                    
             </Routes>

@@ -47,15 +47,21 @@ const SideBar = () => {
       <ul className="sideBarList">
         {sideBarData.map((value, key) => {
           return (
-            <li className="row" onClick={() => navigate("/" + value.url)}>
+            <li key={value.url || key} className="row" onClick={() => navigate("/" + value.url)}>
               {"  "}
               <div className="menu">
-                <i class={value.icon}></i>
+                <i className={value.icon}></i>
                 <p>{value.menuName} </p>
               </div>
             </li>
           );
         })}
+        <li className="row" onClick={() => navigate("/gpt")}>
+          <div className="menu">
+            <span>AI</span>
+            <p>GPT Chat</p>
+          </div>
+        </li>
       </ul>
       <div className="signout-button">
         <button onClick={removeUserName}>Log Out</button>
