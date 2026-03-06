@@ -74,7 +74,7 @@ const MainRoute = () => {
                 <Route path="/stopwatch" element={<Stopwatch />} />
                  <Route path="/count" element={<Counter />} />
                  <Route path='/login' element={<Login />} />
-                  <Route path='/chat' element={<Chat />} />
+                  <Route path='/chat/:room?' element={<Chat />} />
                    <Route path='/menu' element={<MenuList />}/>
                     <Route path='/menu-list' element={<MenuListView />}/>
                     <Route path='/billing' element={<Billing />}/>
