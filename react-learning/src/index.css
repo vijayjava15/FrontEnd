@@ -7,25 +7,36 @@
   font-family: Poppins;
 }
 
+body {
+  background: #f3f6fb;
+  color: #0f172a;
+}
+
+#root {
+  min-height: 100vh;
+}
+
 .card {
-  background-color: wheat;
+  background-color: #ffffff;
   max-width: 200px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  font-family: sans-serif;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  font-family: Poppins, sans-serif;
   margin: 10px;
-  padding: 2px;
+  padding: 4px;
   text-align: center;
   display: inline-block;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
 }
 
 .card img {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
 }
 
-.card :hover {
+.card:hover {
   transform: scale(1.02);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
 }
 
 .taskCard {
@@ -63,12 +74,15 @@ button {
   width: 150px;
   height: 40px;
   border-radius: 10px;
-  background-color: antiquewhite;
+  border: 1px solid transparent;
+  background-color: #e8eef8;
+  color: #0f172a;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 button:hover {
-  background-color: white;
-  transform: scale(1.05);
+  background-color: #dde7f5;
+  transform: translateY(-1px);
 }
 
 .modal {
@@ -119,10 +133,12 @@ button:hover {
 
 .sideBar {
   height: 100%;
-  width: 200px;
-  background-color: #f2edee;
+  width: 100%;
+  padding: 1.1rem 0.9rem;
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
 }
 
 .welcomeImage {
@@ -142,6 +158,10 @@ button:hover {
 .sideBarList {
   display: flex;
   flex-direction: column;
+  gap: 0.35rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .menuName {
@@ -256,8 +276,41 @@ button:hover {
 .menu {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 0.75rem;
+  align-items: center;
   text-align: center;
+}
+
+.sideBar .row {
+  width: 100%;
+  align-items: center;
+  padding: 0.85rem 0.9rem;
+  border-radius: 14px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.sideBar .row:hover {
+  background: rgba(148, 163, 184, 0.14);
+  transform: translateX(2px);
+}
+
+.sideBar .menu i {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sideBar .menu p {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .menuSubmit {
@@ -300,10 +353,21 @@ th {
 }
 
 .sideBar button {
-  border: 0px;
-  border-radius: 0px;
-  background-color: #f2edee;
-  margin-top: 280px;
+  width: 100%;
+  min-height: 46px;
+  margin-top: 0;
+  border: 1px solid rgba(248, 113, 113, 0.28);
+  border-radius: 14px;
+  background: rgba(127, 29, 29, 0.22);
+  color: #fee2e2;
+}
+
+.sideBar button:hover {
+  background: rgba(153, 27, 27, 0.3);
+}
+
+.signout-button {
+  margin-top: auto;
 }
 
 .App {
@@ -315,18 +379,45 @@ th {
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  background: #e2e8f0;
 }
 
 .main-content {
   flex: 1;
-  padding: 20px;
+  padding: 24px;
   overflow-y: auto;
-  background-color: #f5f5f5;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef4fb 100%);
 }
 .side-bar-screen {
-  width: 200px;
+  width: 250px;
   height: 100%;
-  background-color: #1e1e1e;
+  background-color: #111827;
+  box-shadow: 16px 0 40px rgba(15, 23, 42, 0.16);
+}
+
+@media (max-width: 900px) {
+  .main-screen {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .side-bar-screen {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    padding: 16px;
+  }
+
+  .sideBar {
+    min-height: auto;
+  }
+
+  .sideBarList {
+    overflow-x: auto;
+  }
 }
 
 
