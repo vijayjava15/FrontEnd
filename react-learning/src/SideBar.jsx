@@ -26,7 +26,7 @@ const SideBar = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if(token !==null){
-    axios.get(URL+"/menu/getMenus").then((res) => {
+    axios.get(URL+"/menu/getMenus?userToken="+token).then((res) => {
 
       console.log(res);
 
