@@ -64,12 +64,7 @@ const SideBar = () => {
             </li>
           );
         })}
-        <li className="row" onClick={() => navigate("/gpt")}>
-          <div className="menu">
-            <span>AI</span>
-            <p>GPT Chat</p>
-          </div>
-        </li>
+        
       </ul>
       <div className="signout-button">
         <button onClick={removeUserName}>Log Out</button>
