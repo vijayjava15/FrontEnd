@@ -83,7 +83,6 @@ const MainRoute = () => {
                      <Route path='/weekplan' element={<WeekPlan/>} />
                      <Route path='/errorList' element={<Error/>} />
                       <Route path='/create-error' element={<AddError/>} />
-                      <Route path='/gpt' element={<GptPage/>} />
 
                    
             </Routes>

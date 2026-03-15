@@ -83,6 +83,7 @@ const Login = () => {
       loginUser(res.data.data.username)
       alert(res.data.message);
       localStorage.setItem("isLoggedIn", true)
+      localStorage.setItem("token", res.data.data.token)
       console.log( localStorage.getItem("isLoggedIn"))
       navigate("/")
     }else{

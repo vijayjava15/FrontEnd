@@ -24,7 +24,10 @@ const SideBar = () => {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if(token !==null){
     axios.get(URL+"/menu/getMenus").then((res) => {
+
       console.log(res);
 
       const sideBarList = [];
@@ -40,6 +43,11 @@ const SideBar = () => {
       setSideBarData(sideBarList);
       console.log(sideBarList);
     });
+  }else{
+    alert("token expired ")
+    navigate("/login")
+  }
+
   }, []);
 
   return (
