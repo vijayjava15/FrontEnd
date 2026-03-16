@@ -1,1 +1,1 @@
-export const URL= 'https://ec2-13-210-221-157.ap-southeast-2.compute.amazonaws.com:8082'
+export const URL= 'http://localhost:8082'
