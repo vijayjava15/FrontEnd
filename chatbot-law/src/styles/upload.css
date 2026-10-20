@@ -1,0 +1,19 @@
+.file-input { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; }
+.dropzone { display: flex; align-items: center; flex-direction: column; gap: 9px; border: 1.5px dashed #ccd4eb; border-radius: 12px; padding: 32px 18px 24px; background: #fafbff; cursor: pointer; transition: background .2s, border-color .2s; }
+.dropzone:hover, .dropzone.dragging { background: #f0f3ff; border-color: #455ce9; }
+.file-input:focus-visible + .dropzone { outline: 3px solid #455ce9; outline-offset: 4px; }
+.document-icon { display: grid; place-items: center; width: 44px; height: 54px; margin-bottom: 10px; border: 1px solid #dbe1fa; border-radius: 6px 13px 6px 6px; background: #edf0ff; color: #5165d8; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+.dropzone strong { max-width: 100%; overflow-wrap: anywhere; font-size: 14px; text-align: center; }
+.dropzone > span:not(.document-icon) { color: #7e879e; font-size: 12px; }
+.dropzone .file-type { margin-top: 13px; font-size: 10px !important; text-transform: uppercase; letter-spacing: 1px; }
+button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; margin-top: 22px; border: 0; border-radius: 9px; padding: 15px; background: #455ce9; color: white; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; }
+button:hover:enabled { background: #354bce; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button:focus-visible { outline: 3px solid #9daaf8; outline-offset: 3px; }
+.disabled { pointer-events: none; opacity: .65; }
+.hint { display: block; text-align: center; font-size: 11px; color: #949bad; line-height: 1.6; margin-top: 18px; }
+.result { display: flex; flex-direction: column; gap: 5px; margin-top: 18px; padding: 14px; border-radius: 8px; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.success { background: #edf9f2; color: #22754b; }
+.error { background: #fff0f0; color: #b33737; }
+.spinner { width: 15px; height: 15px; border: 2px solid #ffffff66; border-top-color: white; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
